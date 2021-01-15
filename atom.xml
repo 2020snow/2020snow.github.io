@@ -4,13 +4,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-01-15T12:25:52&#43;08:00</updated>
-    <id>https://example.com/</id>
-    <link rel="alternate" type="text/html" href="https://example.com/" />
-    <link rel="self" type="application/atom&#43;xml" href="https://example.com/atom.xml" />
+    <updated>2021-01-15T12:26:41&#43;08:00</updated>
+    <id>https://2020snow.github.io/</id>
+    <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
     <author>
             <name>Snow</name>
-            <uri>https://example.com/</uri>
+            <uri>https://2020snow.github.io/</uri>
             
                 <email>hk_snow@yeah.net</email>
             </author>
