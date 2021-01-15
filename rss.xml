@@ -21,10 +21,33 @@
             <webMaster>hk_snow@yeah.net (Snow)</webMaster>
         
         
-        <lastBuildDate>Fri, 15 Jan 2021 12:26:41 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 15 Jan 2021 14:21:25 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://2020snow.github.io/rss.xml" />
         
+        
+            <item>
+                <title>Hello World</title>
+                <link>https://2020snow.github.io/posts/hello-world/</link>
+                <guid isPermaLink="true">https://2020snow.github.io/posts/hello-world/</guid>
+                <pubDate>Fri, 15 Jan 2021 12:00:35 &#43;0800</pubDate>
+                
+                    <author>hk_snow@yeah.net (Snow)</author>
+                
+                
+                
+                    <description>&lt;p&gt;Snow&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                
+            </item>
         
     </channel>
 </rss>
