@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-01-22T23:17:10&#43;08:00</updated>
+    <updated>2021-01-27T12:18:51&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -16,6 +16,33 @@
             </author>
     
     <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
+        <entry>
+            <title type="text">惠斯通电桥</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/%E6%83%A0%E6%96%AF%E9%80%9A%E7%94%B5%E6%A1%A5/" />
+            <id>https://2020snow.github.io/posts/%E6%83%A0%E6%96%AF%E9%80%9A%E7%94%B5%E6%A1%A5/</id>
+            <updated>2021-01-27T12:18:12&#43;08:00</updated>
+            <published>2021-01-27T11:52:22&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html"></summary>
+            
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/01/B383FA6E-4B3F-45C5-A196-6419620BF865.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/01/CCB525A8-A379-4097-9770-6D0629BF7407.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Hello World</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/hello-world/" />
