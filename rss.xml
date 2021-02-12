@@ -21,10 +21,33 @@
             <webMaster>hk_snow@yeah.net (Snow)</webMaster>
         
         
-        <lastBuildDate>Thu, 11 Feb 2021 12:04:48 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 12 Feb 2021 13:42:42 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://2020snow.github.io/rss.xml" />
         
+        
+            <item>
+                <title>Video Demo</title>
+                <link>https://2020snow.github.io/posts/video-demo/</link>
+                <guid isPermaLink="true">https://2020snow.github.io/posts/video-demo/</guid>
+                <pubDate>Fri, 12 Feb 2021 12:42:26 &#43;0800</pubDate>
+                
+                    <author>hk_snow@yeah.net (Snow)</author>
+                
+                
+                
+                    <description>&lt;p&gt;&lt;video src=&#34;https://kodsky.com/index.php?explorer/share/fileOut&amp;shareID=6rzKC-GQ&amp;path={shareItemLink:6rzKC-GQ}/&amp;accessToken=17c9TVw3FLLQsR_hgkUzWEXigkDhc0g2xjs2InOCmyihue1xMe_6aDCCv_BTo6OvVHbmUSkv55i8aFQv_A&#34; controls=&#34;controls&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>My Love</title>
