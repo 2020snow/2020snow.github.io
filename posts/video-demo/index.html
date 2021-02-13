@@ -14,11 +14,11 @@
 
     <title>Video Demo | Snow</title>
 
-    <link rel="stylesheet" href="/css/meme.min.5aba1ad97c0e1ae357713c6ad1361a43a873041177cc5aa55fe7923d429a2528.css"/>
+    <link rel="stylesheet" href="/css/meme.min.2805a59f29d7ecacdd77a18d3a9707cc1ed9e9b62bfd845d863897441ce7e230.css"/>
 
     
     
-        <script src="/js/meme.min.f936694a66257ff5d62ce2cc69be181f3f41519f7754c902363df674dcf35228.js"></script>
+        <script src="/js/meme.min.dc5f06e091343e25ce96aab325d0ae445a2a6c77e33658dfb443924ce61b7608.js"></script>
 
     
 
@@ -403,6 +403,22 @@
 
 
         
+    
+
+        <div class="load-comments">
+            <div id="load-comments">加载评论</div>
+        </div>
+
+        
+
+        
+
+        
+            <div id="utterances"></div>
+        
+
+    
+
 
 
     </div>
@@ -447,6 +463,38 @@
 
 
 
+
+    
+
+        
+
+        
+
+        
+            <script>
+    function loadComments() {
+        (function() {
+            var utterances = document.getElementById("utterances");
+            var script = document.createElement('script');
+            script.src = 'https://utteranc.es/client.js';
+            script.async = true;
+            script.crossOrigin = 'anonymous';
+            script.setAttribute('repo', 'hkslover\/commits');
+            script.setAttribute('issue-term', 'pathname');
+            const isDark = getCurrentTheme() === 'dark';
+        if (isDark) {
+            script.setAttribute('theme', 'photon-dark');
+        } else {
+            script.setAttribute('theme', 'github-light');
+        }
+            
+            utterances.appendChild(script);
+        })();
+    }
+</script>
+        
+
+    
 
 
 
