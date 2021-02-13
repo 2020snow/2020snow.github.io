@@ -21,10 +21,47 @@
             <webMaster>hk_snow@yeah.net (Snow)</webMaster>
         
         
-        <lastBuildDate>Fri, 12 Feb 2021 17:30:28 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sat, 13 Feb 2021 12:28:49 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://2020snow.github.io/rss.xml" />
         
+        
+            <item>
+                <title>3dtank怀旧服</title>
+                <link>https://2020snow.github.io/posts/3dtank%E6%80%80%E6%97%A7%E6%9C%8D/</link>
+                <guid isPermaLink="true">https://2020snow.github.io/posts/3dtank%E6%80%80%E6%97%A7%E6%9C%8D/</guid>
+                <pubDate>Sat, 13 Feb 2021 12:27:28 &#43;0800</pubDate>
+                
+                    <author>hk_snow@yeah.net (Snow)</author>
+                
+                
+                
+                    <description>&lt;p&gt;&lt;video src=&#34;https://kodsky.com/index.php?explorer/share/file&amp;hash=b8c0NsFB8EKWxkDjj4LGIH_WJ09C1ZQj-XRT8gEaNAp6Lg5SAOBgljC4kTS_BQ&amp;name=Rec%200001.mp4&#34; controls=&#34;controls&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://2020snow.github.io/tags/game/">game</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://2020snow.github.io/tags/memory/">memory</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Mitmproxy</title>

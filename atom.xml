@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-02-12T17:30:28&#43;08:00</updated>
+    <updated>2021-02-13T12:28:49&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -16,6 +16,46 @@
             </author>
     
     <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
+        <entry>
+            <title type="text">3dtank怀旧服</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/3dtank%E6%80%80%E6%97%A7%E6%9C%8D/" />
+            <id>https://2020snow.github.io/posts/3dtank%E6%80%80%E6%97%A7%E6%9C%8D/</id>
+            <updated>2021-02-13T12:28:45&#43;08:00</updated>
+            <published>2021-02-13T12:27:28&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html"></summary>
+            
+                <content type="html">&lt;p&gt;&lt;video src=&#34;https://kodsky.com/index.php?explorer/share/file&amp;hash=b8c0NsFB8EKWxkDjj4LGIH_WJ09C1ZQj-XRT8gEaNAp6Lg5SAOBgljC4kTS_BQ&amp;name=Rec%200001.mp4&#34; controls=&#34;controls&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/game/" term="game" label="game" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/memory/" term="memory" label="memory" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Mitmproxy</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/mitmproxy/" />
