@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-08-10T17:34:34&#43;08:00</updated>
+    <updated>2021-08-10T18:14:03&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -16,6 +16,42 @@
             </author>
     
     <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
+        <entry>
+            <title type="text">新的开始</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B.md/" />
+            <id>https://2020snow.github.io/posts/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B.md/</id>
+            <updated>2021-08-10T18:14:00&#43;08:00</updated>
+            <published>2021-08-10T18:11:37&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html"></summary>
+            
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/08/IMG_5738.PNG&#34; alt=&#34;2021/08/IMG_5738.PNG · hkslover/blog_img - 码云 - 开源中国 (gitee.com)&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/08/d64ff82e91572f4092061e7e5ea0e20.jpg&#34; alt=&#34;2021/08/d64ff82e91572f4092061e7e5ea0e20.jpg · hkslover/blog_img - 码云 - 开源中国 (gitee.com)&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/08/be3247d04453430107f8a560c53fcfe.jpg&#34; alt=&#34;2021/08 · hkslover/blog_img - 码云 - 开源中国 (gitee.com)&#34;&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/memory/" term="memory" label="memory" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">超星视频课程批量学习</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/%E8%B6%85%E6%98%9F%E8%A7%86%E9%A2%91%E8%AF%BE%E7%A8%8B%E6%89%B9%E9%87%8F%E5%AD%A6%E4%B9%A0/" />
