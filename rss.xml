@@ -21,7 +21,7 @@
             <webMaster>hk_snow@yeah.net (Snow)</webMaster>
         
         
-        <lastBuildDate>Sun, 22 Aug 2021 13:42:49 &#43;0800</lastBuildDate>
+        <lastBuildDate>Mon, 23 Aug 2021 22:59:58 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://2020snow.github.io/rss.xml" />
         
@@ -413,7 +413,84 @@
                 
                 
                 
-                    <description></description>
+                    <description>&lt;h1 id=&#34;标准库类型vector&#34;&gt;标准库类型vector&lt;/h1&gt;
+&lt;h2 id=&#34;类模板vector&#34;&gt;类模板——vector&lt;/h2&gt;
+&lt;p&gt;vector是一个类模板，编译器根据模板创建类或函数的过程称为&lt;strong&gt;实例化&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;定义和初始化对象&#34;&gt;定义和初始化对象&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ivec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//ivec是保存int类型的对象
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;goods&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;goods_vec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//保存goods类型的对象
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//保存vector对象的vector对象
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;初始化对象的方法有很多种&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vector&amp;lt;T&amp;gt; v1; //空vector，只能存储类型为T的元素
+vector&amp;lt;T&amp;gt; v2 = v1; //拷贝
+vector&amp;lt;T&amp;gt; v2(v1); //拷贝
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;圆括号&lt;/strong&gt;：提供的值更倾向于去构造vector存储的对象的（指导元素个数和初始值）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//创造一个v1容器，有10个int元素，每一个的值为0
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//有10个int元素，每一个的值为1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;花括号&lt;/strong&gt;：提供的值进行&lt;strong&gt;列表初始化&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//创造一个v1,包含3个元素，值依次为1，2，3
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;snow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//10显然不是string类型，所以这里的花括号起到了圆括号的作用，即初始化10个值为snow的元素
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;向vector对象中添加元素&#34;&gt;向vector对象中添加元素&lt;/h2&gt;
+&lt;p&gt;vector其中一个成员函数&lt;strong&gt;push_back&lt;/strong&gt;（尾插）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;word&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cin&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;word&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;push_back&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;word&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;vector的其他操作&#34;&gt;vector的其他操作&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;empty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//如果v不含有任何元素，返回真，否则返回假
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//返回v中元素的个数
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//返回v中第n个位置上元素的引用
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v2&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
                 
                 
                 
@@ -4605,7 +4682,7 @@
 &lt;/table&gt;
 &lt;p&gt;short &amp;lt; int &amp;lt;= long &amp;lt;= long long&lt;/p&gt;
 &lt;h3 id=&#34;22-sizeof关键字&#34;&gt;2.2 sizeof关键字&lt;/h3&gt;
-&lt;p&gt;**作用：**利用sizeof关键字可以统计数据类型所占内存大小&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：利用sizeof关键字可以统计数据类型所占内存大小&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt; &lt;code&gt;sizeof( 数据类型 / 变量)&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;23-实型浮点型&#34;&gt;2.3 实型（浮点型）&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用于表示小数&lt;/p&gt;
@@ -4637,7 +4714,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;24-字符型&#34;&gt;2.4 字符型&lt;/h3&gt;
-&lt;p&gt;**作用：**字符型变量用于显示单个字符&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：字符型变量用于显示单个字符&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;code&gt;char ch = &#39;a&#39;;&lt;/code&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意1：在显示字符型变量时，用&lt;strong&gt;单引号&lt;/strong&gt;将字符括起来，&lt;strong&gt;不要用双引号&lt;/strong&gt;&lt;/p&gt;
@@ -4646,7 +4723,7 @@
 &lt;p&gt;注意2：单引号内只能有一个字符，不可以是字符串&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;25-转义字符&#34;&gt;2.5 转义字符&lt;/h3&gt;
-&lt;p&gt;**作用：**用于表示一些不能显示出来的ASCII字符&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用于表示一些不能显示出来的ASCII字符&lt;/p&gt;
 &lt;p&gt;现阶段我们常用的转义字符有：&lt;code&gt;\n \\ \t&lt;/code&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -4757,7 +4834,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;27-布尔类型-bool&#34;&gt;2.7 布尔类型 bool&lt;/h3&gt;
-&lt;p&gt;**作用：**布尔数据类型代表真或假的值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：布尔数据类型代表真或假的值&lt;/p&gt;
 &lt;p&gt;bool类型只有两个值：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;true — 真（本质是1）&lt;/li&gt;
@@ -4769,7 +4846,7 @@
 &lt;p&gt;**关键字：**cin&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt; &lt;code&gt;cin &amp;gt;&amp;gt; 变量&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;3-运算符&#34;&gt;3 运算符&lt;/h2&gt;
-&lt;p&gt;**作用：**用于执行代码的运算&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用于执行代码的运算&lt;/p&gt;
 &lt;h3 id=&#34;31-算术运算符&#34;&gt;3.1 算术运算符&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用于处理四则运算&lt;/p&gt;
 &lt;p&gt;算术运算符包括以下符号：&lt;/p&gt;
@@ -4823,9 +4900,9 @@
 &lt;/table&gt;
 &lt;h3 id=&#34;32-赋值运算符&#34;&gt;3.2 赋值运算符&lt;/h3&gt;
 &lt;h3 id=&#34;33-比较运算符&#34;&gt;3.3 比较运算符&lt;/h3&gt;
-&lt;p&gt;**作用：**用于表达式的比较，并返回一个真值或假值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用于表达式的比较，并返回一个真值或假值&lt;/p&gt;
 &lt;h3 id=&#34;34-逻辑运算符&#34;&gt;3.4 逻辑运算符&lt;/h3&gt;
-&lt;p&gt;**作用：**用于根据表达式的值返回真值或假值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用于根据表达式的值返回真值或假值&lt;/p&gt;
 &lt;p&gt;逻辑运算符有以下符号：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -4866,7 +4943,7 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;41-选择结构&#34;&gt;4.1 选择结构&lt;/h3&gt;
 &lt;h4 id=&#34;411-if语句&#34;&gt;4.1.1 if语句&lt;/h4&gt;
-&lt;p&gt;**作用：**执行满足条件的语句&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：执行满足条件的语句&lt;/p&gt;
 &lt;p&gt;if语句的三种形式&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -4912,7 +4989,7 @@ else{
 &lt;/ul&gt;
 &lt;h4 id=&#34;412-三目运算符&#34;&gt;4.1.2 三目运算符&lt;/h4&gt;
 &lt;h4 id=&#34;413-switch语句&#34;&gt;4.1.3 switch语句&lt;/h4&gt;
-&lt;p&gt;**作用：**执行多条件分支语句&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：执行多条件分支语句&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;switch(表达式){
 	case 结果:
 		满足结果执行的语句;
@@ -4964,10 +5041,10 @@ else{
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;42-循环结构&#34;&gt;4.2 循环结构&lt;/h3&gt;
 &lt;h4 id=&#34;421-while循环语句&#34;&gt;4.2.1 while循环语句&lt;/h4&gt;
-&lt;p&gt;**作用：**满足循环条件，执行循环语句&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：满足循环条件，执行循环语句&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：while(循环条件){ 满足条件时执行的语句&lt;/strong&gt; }&lt;/p&gt;
 &lt;h4 id=&#34;422-dowhile循环语句&#34;&gt;4.2.2 do…while循环语句&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 满足循环条件，执行循环语句&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;： 满足循环条件，执行循环语句&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt; &lt;code&gt;do{ 循环语句 } while(循环条件);&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注意：&lt;strong&gt;与while的区别在于do…while会&lt;/strong&gt;先执行一次循环语句，再判断循环条件&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;练习案例：水仙花数&lt;/strong&gt;&lt;/p&gt;
@@ -5014,7 +5091,7 @@ else{
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;423-for循环语句&#34;&gt;4.2.3 for循环语句&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 满足循环条件，执行循环语句&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;： 满足循环条件，执行循环语句&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;code&gt;for(起始表达式;条件表达式;末尾循环体) { 循环语句; }&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -5046,7 +5123,7 @@ else{
 &lt;p&gt;总结：while , do…while, for都是开发中常用的循环语句，for循环结构比较清晰，比较常用&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&#34;424-嵌套循环&#34;&gt;4.2.4 嵌套循环&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 在循环体中再嵌套一层循环，解决一些实际问题&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;： 在循环体中再嵌套一层循环，解决一些实际问题&lt;/p&gt;
 &lt;p&gt;**练习案例：**乘法口诀表&lt;/p&gt;
 &lt;p&gt;案例描述：利用嵌套循环，实现九九乘法表&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -5126,9 +5203,9 @@ else{
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;432-continue语句&#34;&gt;4.3.2 continue语句&lt;/h4&gt;
-&lt;p&gt;**作用：**在循环语句中，跳过本次循环中余下尚未执行的语句，继续执行下一次循环&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：在循环语句中，跳过本次循环中余下尚未执行的语句，继续执行下一次循环&lt;/p&gt;
 &lt;h4 id=&#34;433-goto语句&#34;&gt;4.3.3 goto语句&lt;/h4&gt;
-&lt;p&gt;**作用：**可以无条件跳转语句&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：可以无条件跳转语句&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -5180,7 +5257,7 @@ else{
 &lt;h4 id=&#34;521-一维数组定义方式&#34;&gt;5.2.1 一维数组定义方式&lt;/h4&gt;
 &lt;p&gt;一维数组定义的三种方式：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;数据类型 数组名[ 数组长度 ];&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;数据类型 数组名[ 数组长度 ];&lt;/code&gt;（补充）数组长度也叫做维度。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;数据类型 数组名[ 数组长度 ] = { 值1，值2 ...};&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;数据类型 数组名[ ] = { 值1，值2 ...};&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -5295,7 +5372,70 @@ else{
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;53-二维数组&#34;&gt;5.3 二维数组&lt;/h3&gt;
+&lt;/div&gt;&lt;h3 id=&#34;补充-p102字符数组的特殊性&#34;&gt;（补充 P102）字符数组的特殊性&lt;/h3&gt;
+&lt;p&gt;初始化字符串数组时，注意字符串字面值的结尾处还有一个空字符，这个空字符也会像字符串的其他字符一样被拷贝到字符数组中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;+&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;+&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//维度为4
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;+&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;+&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#39;\0&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//维度为4
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;snow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//错误，snow看起来时4个字符，但是数组的长度大小必须至少是5，多出来的一个是存放结尾处的空字符
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;补充-p104数组的遍历&#34;&gt;（补充 P104）数组的遍历&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;auto&lt;/span&gt; &lt;span class=&#34;nl&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;指针也是迭代器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{};&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;标准库函数&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//指向arr首元素的指针
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//指向arr尾元素的下一位置的指针	
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;指针和数组&#34;&gt;指针和数组&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://2020snow.github.io/posts/c++%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88/&#34;&gt;C++数组和指针 | Snow (2020snow.github.io)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;53-二维数组&#34;&gt;5.3 二维数组&lt;/h3&gt;
 &lt;p&gt;二维数组就是在一维数组上，多加一个维度。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;数据类型 数组名[ 行数 ][ 列数 ] = { {数据1，数据2 } ，{数据3，数据4 } };&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -5412,12 +5552,12 @@ else{
 &lt;/div&gt;&lt;h3 id=&#34;62-函数的定义&#34;&gt;6.2 函数的定义&lt;/h3&gt;
 &lt;h3 id=&#34;63-函数的调用&#34;&gt;6.3 函数的调用&lt;/h3&gt;
 &lt;h3 id=&#34;66-函数的声明&#34;&gt;6.6 函数的声明&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 告诉编译器函数名称及如何调用函数。函数的实际主体可以单独定义。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;： 告诉编译器函数名称及如何调用函数。函数的实际主体可以单独定义。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;函数的&lt;strong&gt;声明可以多次&lt;/strong&gt;，但是函数的&lt;strong&gt;定义只能有一次&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;67-函数的分文件编写&#34;&gt;6.7 函数的分文件编写&lt;/h3&gt;
-&lt;p&gt;**作用：**让代码结构更加清晰&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：让代码结构更加清晰&lt;/p&gt;
 &lt;p&gt;函数分文件编写一般有4个步骤&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;创建后缀名为.h的头文件&lt;/li&gt;
@@ -5641,7 +5781,7 @@ else{
 &lt;p&gt;技巧：看const右侧紧跟着的是指针还是常量, 是指针就是常量指针，是常量就是指针常量（就近原则）&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;77-指针和函数&#34;&gt;7.7 指针和函数&lt;/h3&gt;
-&lt;p&gt;**作用：**利用指针作函数参数，可以修改实参的值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：利用指针作函数参数，可以修改实参的值&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -5754,7 +5894,7 @@ else{
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;83-结构体数组&#34;&gt;8.3 结构体数组&lt;/h3&gt;
-&lt;p&gt;**作用：**将自定义的结构体放入到数组中方便维护&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：将自定义的结构体放入到数组中方便维护&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;code&gt;struct 结构体名 数组名[元素个数] = { {} , {} , ... {} }&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -5791,7 +5931,7 @@ else{
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;84-结构体指针&#34;&gt;8.4 结构体指针&lt;/h3&gt;
-&lt;p&gt;**作用：**通过指针访问结构体中的成员&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：通过指针访问结构体中的成员&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;利用操作符 &lt;code&gt;-&amp;gt;&lt;/code&gt;可以通过结构体指针访问结构体属性&lt;/li&gt;
 &lt;/ul&gt;
@@ -5836,18 +5976,18 @@ else{
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;85-结构体嵌套结构体&#34;&gt;8.5 结构体嵌套结构体&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 结构体中的成员可以是另一个结构体&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;： 结构体中的成员可以是另一个结构体&lt;/p&gt;
 &lt;p&gt;**例如：**每个老师辅导一个学员，一个老师的结构体中，记录一个学生的结构体&lt;/p&gt;
 &lt;p&gt;**总结：**在结构体中可以定义另一个结构体作为成员，用来解决实际问题&lt;/p&gt;
 &lt;h3 id=&#34;86-结构体做函数参数&#34;&gt;8.6 结构体做函数参数&lt;/h3&gt;
-&lt;p&gt;**作用：**将结构体作为参数向函数中传递&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：将结构体作为参数向函数中传递&lt;/p&gt;
 &lt;p&gt;传递方式有两种：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;值传递&lt;/li&gt;
 &lt;li&gt;地址传递&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;87-结构体中-const使用场景&#34;&gt;8.7 结构体中 const使用场景&lt;/h3&gt;
-&lt;p&gt;**作用：**用const来防止误操作&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用const来防止误操作&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/ClaireSy/article/details/108422945&#34;&gt;《黑马》——C++基础入门_漏网小鱼的博客-CSDN博客&lt;/a&gt;&lt;/p&gt;
 </description>
                 
