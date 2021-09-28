@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-08-23T22:59:57&#43;08:00</updated>
+    <updated>2021-09-28T11:25:23&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -16,6 +16,166 @@
             </author>
     
     <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
+        <entry>
+            <title type="text">Cute HTTP File使用帮助</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/cute-http-file%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/" />
+            <id>https://2020snow.github.io/posts/cute-http-file%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/</id>
+            <updated>2021-09-28T11:20:58&#43;08:00</updated>
+            <published>2021-09-28T10:26:30&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html">案例分析 任意同学可以将文件上传到指定文件夹（公共文件夹），但不可访问“我的工作文件”……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;案例分析&#34;&gt;案例分析&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928003036.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;任意同学可以将文件上传到指定文件夹（公共文件夹），但不可访问“我的工作文件”；登陆管理员账号后可以对“公共文件夹”和“我的工作文件”任意访问。&lt;/p&gt;
+&lt;h1 id=&#34;软件配置&#34;&gt;软件配置&lt;/h1&gt;
+&lt;h2 id=&#34;设置开机启动和自动运行服务&#34;&gt;设置开机启动和自动运行服务&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928111515.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;将图片的对号选中，并在右上角三条杠的按钮下，选择”开机启动“。&lt;/p&gt;
+&lt;h2 id=&#34;设置共享文件夹&#34;&gt;设置共享文件夹&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928003312.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;点击“添加”，将要共享的文件夹添加进来。&lt;/p&gt;
+&lt;h2 id=&#34;设置用户权限&#34;&gt;设置用户权限&lt;/h2&gt;
+&lt;h3 id=&#34;修改访客同学的权限&#34;&gt;修改访客（同学）的权限&lt;/h3&gt;
+&lt;p&gt;1，在“账户”中，选中“访客”，点击“修改”，&lt;strong&gt;将访客的“根目录访问权限”中的“读 写 删除”对号全部去掉&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928003334.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;2，再点击“添加”按钮，选择“选择已存在的目录”，将“公共文件夹”（每个人都能访问的）目录添加进去，“访问权限”将“读 写”对号选中，&lt;strong&gt;“删除”对号不要选择&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;建立管理员账号任意访问&#34;&gt;建立管理员账号（任意访问）&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928003241.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在“账户”中点击“添加”，输入&lt;strong&gt;自定义的用户名和密码&lt;/strong&gt;（用于网页的登录），并且在“根目录访问权限“&lt;strong&gt;”读 写 删除”对号全部选中&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;网页的个性化配置&#34;&gt;网页的个性化配置&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928110441.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;运行&#34;&gt;运行&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928003418.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;不登陆账号时，仅能访问”公共文件夹“&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928003438.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;登录先前设置的账号后，可以访问任意文件夹&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210928003459.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;手机访问界面简洁可用&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/09/a0162b792438d28a00839b03ea451de.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;外网访问-端口映射解决方案&#34;&gt;外网访问 端口映射解决方案&lt;/h1&gt;
+&lt;p&gt;目前花生壳为最佳解决方案，有替代方案但稳定性可能不如花生壳，且花生壳费用较合理，可以长期使用。&lt;/p&gt;
+&lt;p&gt;打开花生壳软件，运行即可。外网访问的网址在花生壳上。&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">Stm32学习</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0/" />
+            <id>https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0/</id>
+            <updated>2021-08-27T21:16:36&#43;08:00</updated>
+            <published>2021-08-25T22:04:15&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html">【正点原子】STM32开发板实验教程（F103）_哔哩哔哩_bilibili P1 漫谈 看……</summary>
+            
+                <content type="html">&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1kx411k7JT?from=search&amp;amp;seid=13083664234720611625&#34;&gt;【正点原子】STM32开发板实验教程（F103）_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;p1&#34;&gt;P1&lt;/h2&gt;
+&lt;h3 id=&#34;漫谈&#34;&gt;漫谈&lt;/h3&gt;
+&lt;p&gt;看着教程的录制时间，第一感觉这是一套比较老的学习教程，我本人是比较抵触一类我认为“内容较老，墨守成规”的教程的，但是这只是听完第一节课的感受，相信在我后续课程的学习中，一定会对这类经典有一个新的认识。&lt;/p&gt;
+&lt;h3 id=&#34;stm32学习方法&#34;&gt;stm32学习方法&lt;/h3&gt;
+&lt;p&gt;获取&lt;strong&gt;资料&lt;/strong&gt;——&amp;gt;整合、分析资料——&amp;gt;高效运用，而且这种学习方法可以推广到其他学习上。&lt;/p&gt;
+&lt;h4 id=&#34;获取资料&#34;&gt;获取资料&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;搜索引擎：回过头看，从我开始接触易语言，到坚持学习python爬虫，系统学习C++的过程中，做的最好费时间但性价比最高的事情便是获取学习资料，&lt;strong&gt;而且大部分都是通过搜索引擎：谷歌、百度。每次遇到问题，没有百度谷歌解决不了的&lt;/strong&gt;。这里推广到学习stm32，拿到开发板后，直接通过开发板型号去搜索，获取这块板子的信息，越多越好，恐惧来源于未知，对开发板了解的越多使用的时候越能得心应手。&lt;/li&gt;
+&lt;li&gt;社区：csdn、博客园、百度知道、知乎、Stackqverflow、52破解论坛、精易论坛、github等等，这些是我学习过程中经常使用的社区。stm32有专门的论坛，&lt;strong&gt;社区学习的好处是大家可以互相交流经验，所谓高手在民间，论坛、社区必定卧虎藏龙&lt;/strong&gt;，和这类人经常交流对自己一定有很大的提升&lt;/li&gt;
+&lt;li&gt;书籍、开发板官方文档：经典书籍对我这种初学者有着指向标的作用，&lt;strong&gt;可以在最开始就规范我的开发习惯&lt;/strong&gt;，以免以后难以改掉坏毛病。而且&lt;strong&gt;官方的文档永远都是官方&lt;/strong&gt;，有着当前开发板所有的详细资料，几乎所有信息都可以在文档上搜索到。我要在英语上下功夫，尽量去看官方原文档，再者可以选择翻译质量较高的中文文档。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;整合分析资料&#34;&gt;整合、分析资料&lt;/h4&gt;
+&lt;p&gt;分析资料是一个导向性很强的过程，所以明确学习目标（或者案例目的），&lt;strong&gt;知道要做什么，才知道要用到什么&lt;/strong&gt;。所以我以后无论去学习什么，&lt;strong&gt;都要尽量自己设计一个可以完成的案例，有着明确的目的&lt;/strong&gt;，从中锻炼自己的思维，有利于长远发展。而且在这个过程中一定要改正我的坏习惯——只用脑，不用手。有些程序在纸上跑一跑，思维导图画一画，就知道自己需要什么了。&lt;/p&gt;
+&lt;h4 id=&#34;高效运用&#34;&gt;高效运用&lt;/h4&gt;
+&lt;p&gt;之所以高效，是因为资料找的全，整合的较为系统，案例开发的文档写的较全面、严谨。所以时间多花在前两步，到最后阶段就是照着文档输出代码了，这个过程应该会行云流水。但是期间肯定会遇到自己从没遇到的问题，&lt;strong&gt;尽量自己通过搜索引擎解决问题&lt;/strong&gt;，实在解决不了可以去请教资深的学长，&lt;strong&gt;并且及时记录，方便后续学习&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;p2&#34;&gt;P2&lt;/h2&gt;
+&lt;p&gt;介绍开发板，真的是看了个热闹啊啊啊啊啊&lt;/p&gt;
+&lt;h2 id=&#34;p3&#34;&gt;P3&lt;/h2&gt;
+&lt;p&gt;主要介绍了stm32的背景、发展历程以及stm32的优势，听的与其说略懂一点，不如说完全不懂[捂脸]。应用场景非常广泛，我以前幻想的发明都可以通过stm32+丰富外设来完成。&lt;/p&gt;
+&lt;h2 id=&#34;p4&#34;&gt;P4&lt;/h2&gt;
+&lt;p&gt;stm32是ST公司基于ARM Cortex-M内核开发的微控制器&lt;/p&gt;
+&lt;h4 id=&#34;芯片有哪些资源&#34;&gt;芯片有哪些资源&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;可以查看芯片上印刷的型号，然后在“产品选型手册”搜索查找对应芯片的参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;STM32 F 103 C 8 T 6&lt;/p&gt;
+&lt;p&gt;STM32：餐品系列，基于ARM核心的微控制器&lt;/p&gt;
+&lt;p&gt;F：通用类型&lt;/p&gt;
+&lt;p&gt;103：产品子系列（增强型）&lt;/p&gt;
+&lt;p&gt;C：引脚数目（48脚）&lt;/p&gt;
+&lt;p&gt;8：64K字节的闪存存储器&lt;/p&gt;
+&lt;p&gt;T：封装，根本不懂&lt;/p&gt;
+&lt;p&gt;6：工作温度范围&lt;/p&gt;
+&lt;h2 id=&#34;p5&#34;&gt;P5&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;MDK的安装：科学上网下载了MDK的最新安装包，版本号535，顺利安装成功，但没有激活（网上的keygen无法完成激活）&lt;/li&gt;
+&lt;li&gt;USB串口驱动安装：顺利完成。&lt;/li&gt;
+&lt;li&gt;拓展包：由于我没有开发板，所以没有安装拓展包。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;p6&#34;&gt;P6&lt;/h2&gt;
+&lt;p&gt;下载了ISP串口安装工具，跟着视频粗略的了解了一键下载的原理。&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;看了这个系列视频，有关P4 P5的讲解一点也不懂，一会去找一些其他课程加深理解。&lt;/p&gt;
+&lt;p&gt;建立工程文件夹，再建立USER文件夹，然后使用keil5新建工程，选择设备型号，&lt;/p&gt;
+&lt;p&gt;在工程文件夹下建立CORE文件夹、OBJ文件夹、LIB文件夹&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver  下的inc和src放到LIB文件夹下（存放ST官方提供的库函数源码）&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport 下的两个文件放入CORE文件夹(内核寄存器描述文件)&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_hd.s  复制到CORE文件夹 （stm32相关启动文件）&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x 下的三个文件放入USER文件夹&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Project\STM32F10x_StdPeriph_Template\ 下的4个文件 main.c 、stm32f10x_conf.h、stm32f10x_it.c、stm32f10x_it.h文件放入USER&lt;/p&gt;
+&lt;p&gt;keil5，Target1右键，选择Manager Project items，在groups依次建立USER,CORE和LIB。&lt;/p&gt;
+&lt;p&gt;在LIB中添加之前移入LIB/src的所有.c文件&lt;/p&gt;
+&lt;p&gt;在USER中添加USER中的所有.c文件&lt;/p&gt;
+&lt;p&gt;点击魔术棒，选择C/C++，设置include文件（USER,CORE,LIB/inc三个文件夹），在添加宏定STM32F10X_HD,USE_STDPERIPH_DRIVER&lt;/p&gt;
+&lt;p&gt;寄存器配置&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x 3个文件放到一个文件夹下&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_hd.s  复制到相同文件夹 （stm32相关启动文件）&lt;/p&gt;
+&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport 下的两个文件放入相同文件夹下(内核寄存器描述文件)&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/learn/" term="learn" label="learn" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/note/" term="note" label="note" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/stm32/" term="stm32" label="stm32" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">不一样的helloworld</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84helloworld/" />
@@ -4583,7 +4743,7 @@ vector&amp;lt;T&amp;gt; v2(v1); //拷贝
             <title type="text">C&#43;&#43;基础入门</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/c&#43;&#43;%E7%AC%94%E8%AE%B0%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" />
             <id>https://2020snow.github.io/posts/c&#43;&#43;%E7%AC%94%E8%AE%B0%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</id>
-            <updated>2021-08-23T22:25:06&#43;08:00</updated>
+            <updated>2021-08-25T10:30:41&#43;08:00</updated>
             <published>2021-06-18T15:14:19&#43;08:00</published>
             <author>
                     <name>Snow</name>
@@ -5450,7 +5610,7 @@ else{
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//指向arr尾元素的下一位置的指针	
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;指针和数组&#34;&gt;指针和数组&lt;/h3&gt;
+&lt;/div&gt;&lt;h3 id=&#34;补充指针和数组&#34;&gt;（补充）指针和数组&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://2020snow.github.io/posts/c++%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88/&#34;&gt;C++数组和指针 | Snow (2020snow.github.io)&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;53-二维数组&#34;&gt;5.3 二维数组&lt;/h3&gt;
 &lt;p&gt;二维数组就是在一维数组上，多加一个维度。&lt;/p&gt;
@@ -5577,10 +5737,8 @@ else{
 &lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：让代码结构更加清晰&lt;/p&gt;
 &lt;p&gt;函数分文件编写一般有4个步骤&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;创建后缀名为.h的头文件&lt;/li&gt;
-&lt;li&gt;创建后缀名为.cpp的源文件&lt;/li&gt;
-&lt;li&gt;在头文件中写函数的声明&lt;/li&gt;
-&lt;li&gt;在源文件中写函数的定义&lt;/li&gt;
+&lt;li&gt;创建后缀名为.h的头文件（写声明）&lt;/li&gt;
+&lt;li&gt;创建后缀名为.cpp的源文件（写定义）&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;sort.h&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -5728,6 +5886,48 @@ else{
 &lt;li&gt;普通变量存放的是数据,指针变量存放的是地址&lt;/li&gt;
 &lt;li&gt;指针变量可以通过&amp;quot; * &amp;quot;操作符，操作指针变量指向的内存空间，这个过程称为解引用&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;补充-p47指针值&#34;&gt;（补充 P47）指针值&lt;/h3&gt;
+&lt;p&gt;指针值有4种状态：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;指向一个对象&lt;/li&gt;
+&lt;li&gt;指向紧邻对象所占空间的下一个位置&lt;/li&gt;
+&lt;li&gt;空指针，意味着指针没有指向任何对象&lt;/li&gt;
+&lt;li&gt;无效指针，也就是上述情况之外的其它值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;补充-p48空指针&#34;&gt;（补充 P48）空指针&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;空指针&lt;/strong&gt;不指向任何对象，尽量先定义对象在定义指向它的指针，否则就将他定义为空指针&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;nullptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt;&lt;span class=&#34;cpf&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;补充-p52指向指针的指针&#34;&gt;（补充 P52）指向指针的指针&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//指向int整数的指针
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//指向int型指针的指针
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;此时要想通过p2获取最原始的对象，需要对指针做两次解引用&lt;/p&gt;
+&lt;h3 id=&#34;补充指针所占内存空间&#34;&gt;（补充）指针所占内存空间&lt;/h3&gt;
+&lt;p&gt;与操作系统的位数有关，32位系统占4个字节，64位系统站8个字节。&lt;/p&gt;
 &lt;h3 id=&#34;75-const修饰指针&#34;&gt;7.5 const修饰指针&lt;/h3&gt;
 &lt;p&gt;const修饰指针有三种情况&lt;/p&gt;
 &lt;ol&gt;
@@ -5794,9 +5994,7 @@ else{
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;技巧：看const右侧紧跟着的是指针还是常量, 是指针就是常量指针，是常量就是指针常量（就近原则）&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;技巧：看const右侧紧跟着的是指针还是常量,从左向右读，例如int * const p2 = &amp;amp;a，现有*后有const，则为指针常量。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;77-指针和函数&#34;&gt;7.7 指针和函数&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：利用指针作函数参数，可以修改实参的值&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
@@ -5873,7 +6071,18 @@ else{
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;总结：如果不想修改实参，就用值传递，如果想修改实参，就用地址传递&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;8-结构体&#34;&gt;8 结构体&lt;/h2&gt;
+&lt;h3 id=&#34;补充值传递的实质&#34;&gt;（补充）值传递的实质&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在进行值传递时，相当于进行了这样一个操作int a = 参数，中间过程会有一个临时变量的赋值操作。&lt;/p&gt;
+&lt;p&gt;一般函数传参传的是引用(例 const int &amp;amp;a，且不会改变实参的值)&lt;/p&gt;
+&lt;h2 id=&#34;8-结构体类&#34;&gt;8 结构体，类&lt;/h2&gt;
 &lt;h3 id=&#34;81-结构体基本概念&#34;&gt;8.1 结构体基本概念&lt;/h3&gt;
 &lt;p&gt;结构体属于用户自定义的数据类型，允许用户存储不同的数据类型&lt;/p&gt;
 &lt;h3 id=&#34;82-结构体定义和使用&#34;&gt;8.2 结构体定义和使用&lt;/h3&gt;
@@ -5902,10 +6111,10 @@ else{
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;student&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;c1&#34;&gt;//成员列表
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//姓名
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;//年龄
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;score&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//分数
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;      
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;score&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    
+&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;//结构体变量创建
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;student&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -5986,8 +6195,8 @@ else{
 	&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 	&lt;span class=&#34;n&#34;&gt;goods&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;chocolate&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 	&lt;span class=&#34;n&#34;&gt;goods&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;chocolate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//用指针的时候不用带星号
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
 	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -5997,14 +6206,15 @@ else{
 &lt;p&gt;**例如：**每个老师辅导一个学员，一个老师的结构体中，记录一个学生的结构体&lt;/p&gt;
 &lt;p&gt;**总结：**在结构体中可以定义另一个结构体作为成员，用来解决实际问题&lt;/p&gt;
 &lt;h3 id=&#34;86-结构体做函数参数&#34;&gt;8.6 结构体做函数参数&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：将结构体作为参数向函数中传递&lt;/p&gt;
-&lt;p&gt;传递方式有两种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;值传递&lt;/li&gt;
-&lt;li&gt;地址传递&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3 id=&#34;87-结构体中-const使用场景&#34;&gt;8.7 结构体中 const使用场景&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用const来防止误操作&lt;/p&gt;
+&lt;h3 id=&#34;补充结构体和类&#34;&gt;（补充）结构体和类&lt;/h3&gt;
+&lt;p&gt;结构体和类没有实质性的区别，唯一一个区别是结构体默认成员都是public，而类默认是private。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C++面向对象的三大特性为：封装、继承、多态&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;C++认为万事万物都皆为对象，对象上有其属性和行为&lt;/p&gt;
+&lt;p&gt;我的理解，在封装类之前，要先思考对象是什么，能干什么，有什么特性。（封装）&lt;/p&gt;
+&lt;p&gt;多个对象之间的数据有何关联。（继承）&lt;/p&gt;
+&lt;p&gt;对象的多个行为是否有其相似性（例如计算器的加法和减法，都是传入两个参数进行运算），可以考虑使用抽象类，便于后续代码的维护等等。（继承和多态）&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/ClaireSy/article/details/108422945&#34;&gt;《黑马》——C++基础入门_漏网小鱼的博客-CSDN博客&lt;/a&gt;&lt;/p&gt;
 </content>
             
