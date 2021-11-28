@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-09-28T11:25:23&#43;08:00</updated>
+    <updated>2021-11-28T15:40:32&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -16,6 +16,75 @@
             </author>
     
     <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
+        <entry>
+            <title type="text">计算机考试软件patched</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%80%83%E8%AF%95%E8%BD%AF%E4%BB%B6patched/" />
+            <id>https://2020snow.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%80%83%E8%AF%95%E8%BD%AF%E4%BB%B6patched/</id>
+            <updated>2021-11-28T15:40:28&#43;08:00</updated>
+            <published>2021-11-28T10:53:12&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html">前言 真的好久好久好久没有更新博客了。。。 期末即将来临，计算机期末考试也要到了，学校选……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;真的好久好久好久没有更新博客了。。。&lt;/p&gt;
+&lt;p&gt;期末即将来临，计算机期末考试也要到了，学校选择软件上机考试，在机房看了下软件依赖文件，看到了一个MySql.Data.dll，可以判断后台数据库使用的mysql，很可能工作人员把用户信息和题库全都放在了一个数据库里，如果可以通过软件获取到mysql的登录信息，我就可以获取题库。。&lt;/p&gt;
+&lt;h1 id=&#34;查壳&#34;&gt;查壳&lt;/h1&gt;
+&lt;p&gt;无壳，软件使用.NET框架开发&lt;/p&gt;
+&lt;h1 id=&#34;破解过程&#34;&gt;破解过程&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;在这方面接触的比较少，而且OD使用的不够熟练，不知道如何快速定位事件，于是我百度NET软件的反编译，查到了这样一个软件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/11/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-11-28%20105748.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;考试系统直接拖进去，软件已经将代码反编译，包括函数名、变量名全部为源代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/11/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-11-28%20105910.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;快速定位到软件登陆部分，刚开始看到几个Jia_Me jie_me函数名，以为软件对登陆信息进行了加密，但是进一步定位mysql connect部分，发现并没有使用加密，而是直接定义一个str传到mysql连接结构体里&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/11/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-11-28%20110511.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;不知道为什么这么写。。。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取到登录信息后，连接代理，登陆数据库，成功登录，该数据库是阿里云的，并且学校目前所有上机考试的考试信息和考题全部存储在这里。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;软件突然不能使用&#34;&gt;软件突然不能使用&lt;/h1&gt;
+&lt;p&gt;有人在计算机上课群里反应软件在宿舍（外网）不能使用了，老师的反馈是“可能这个连接的人多了，所以连接不上，也可能是这个客户端就是不能用了”，无语。因为我也要练习，但并不想去机房（花钱），于是我登陆数据库查看下什么原因，原来是题库的数据库名被更改，而软件里连接题库是写死的，导致连接不上，软件异常退出。&lt;/p&gt;
+&lt;h1 id=&#34;反击&#34;&gt;反击&lt;/h1&gt;
+&lt;p&gt;利用反编译软件，定位到登陆部分，将更改后的数据库名更新，软件成功连接，题库获取成功。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/11/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-11-28%20111024.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+&lt;p&gt;软件不加壳就离谱&lt;/p&gt;
+&lt;p&gt;登陆信息明文记录就离谱&lt;/p&gt;
+&lt;p&gt;故意更改数据库名让学生花钱去机房就离谱&lt;/p&gt;
+&lt;p&gt;更过分的是软件不好好优化，还TM对接个WXpay，学生购买积分可以查询答案。呵呵&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/11/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-11-28%20111236.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/11/QQ%E5%9B%BE%E7%89%8720211128111343.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/learnpatched/" term="learn，patched" label="learn，patched" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Cute HTTP File使用帮助</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/cute-http-file%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/" />
@@ -67,110 +136,6 @@
             
             
                 
-                    
-                
-            
-        </entry>
-    
-        <entry>
-            <title type="text">Stm32学习</title>
-            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0/" />
-            <id>https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0/</id>
-            <updated>2021-08-27T21:16:36&#43;08:00</updated>
-            <published>2021-08-25T22:04:15&#43;08:00</published>
-            <author>
-                    <name>Snow</name>
-                    <uri>https://2020snow.github.io/</uri>
-                    <email>hk_snow@yeah.net</email>
-                    </author>
-            <summary type="html">【正点原子】STM32开发板实验教程（F103）_哔哩哔哩_bilibili P1 漫谈 看……</summary>
-            
-                <content type="html">&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1kx411k7JT?from=search&amp;amp;seid=13083664234720611625&#34;&gt;【正点原子】STM32开发板实验教程（F103）_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;p1&#34;&gt;P1&lt;/h2&gt;
-&lt;h3 id=&#34;漫谈&#34;&gt;漫谈&lt;/h3&gt;
-&lt;p&gt;看着教程的录制时间，第一感觉这是一套比较老的学习教程，我本人是比较抵触一类我认为“内容较老，墨守成规”的教程的，但是这只是听完第一节课的感受，相信在我后续课程的学习中，一定会对这类经典有一个新的认识。&lt;/p&gt;
-&lt;h3 id=&#34;stm32学习方法&#34;&gt;stm32学习方法&lt;/h3&gt;
-&lt;p&gt;获取&lt;strong&gt;资料&lt;/strong&gt;——&amp;gt;整合、分析资料——&amp;gt;高效运用，而且这种学习方法可以推广到其他学习上。&lt;/p&gt;
-&lt;h4 id=&#34;获取资料&#34;&gt;获取资料&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;搜索引擎：回过头看，从我开始接触易语言，到坚持学习python爬虫，系统学习C++的过程中，做的最好费时间但性价比最高的事情便是获取学习资料，&lt;strong&gt;而且大部分都是通过搜索引擎：谷歌、百度。每次遇到问题，没有百度谷歌解决不了的&lt;/strong&gt;。这里推广到学习stm32，拿到开发板后，直接通过开发板型号去搜索，获取这块板子的信息，越多越好，恐惧来源于未知，对开发板了解的越多使用的时候越能得心应手。&lt;/li&gt;
-&lt;li&gt;社区：csdn、博客园、百度知道、知乎、Stackqverflow、52破解论坛、精易论坛、github等等，这些是我学习过程中经常使用的社区。stm32有专门的论坛，&lt;strong&gt;社区学习的好处是大家可以互相交流经验，所谓高手在民间，论坛、社区必定卧虎藏龙&lt;/strong&gt;，和这类人经常交流对自己一定有很大的提升&lt;/li&gt;
-&lt;li&gt;书籍、开发板官方文档：经典书籍对我这种初学者有着指向标的作用，&lt;strong&gt;可以在最开始就规范我的开发习惯&lt;/strong&gt;，以免以后难以改掉坏毛病。而且&lt;strong&gt;官方的文档永远都是官方&lt;/strong&gt;，有着当前开发板所有的详细资料，几乎所有信息都可以在文档上搜索到。我要在英语上下功夫，尽量去看官方原文档，再者可以选择翻译质量较高的中文文档。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;整合分析资料&#34;&gt;整合、分析资料&lt;/h4&gt;
-&lt;p&gt;分析资料是一个导向性很强的过程，所以明确学习目标（或者案例目的），&lt;strong&gt;知道要做什么，才知道要用到什么&lt;/strong&gt;。所以我以后无论去学习什么，&lt;strong&gt;都要尽量自己设计一个可以完成的案例，有着明确的目的&lt;/strong&gt;，从中锻炼自己的思维，有利于长远发展。而且在这个过程中一定要改正我的坏习惯——只用脑，不用手。有些程序在纸上跑一跑，思维导图画一画，就知道自己需要什么了。&lt;/p&gt;
-&lt;h4 id=&#34;高效运用&#34;&gt;高效运用&lt;/h4&gt;
-&lt;p&gt;之所以高效，是因为资料找的全，整合的较为系统，案例开发的文档写的较全面、严谨。所以时间多花在前两步，到最后阶段就是照着文档输出代码了，这个过程应该会行云流水。但是期间肯定会遇到自己从没遇到的问题，&lt;strong&gt;尽量自己通过搜索引擎解决问题&lt;/strong&gt;，实在解决不了可以去请教资深的学长，&lt;strong&gt;并且及时记录，方便后续学习&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;p2&#34;&gt;P2&lt;/h2&gt;
-&lt;p&gt;介绍开发板，真的是看了个热闹啊啊啊啊啊&lt;/p&gt;
-&lt;h2 id=&#34;p3&#34;&gt;P3&lt;/h2&gt;
-&lt;p&gt;主要介绍了stm32的背景、发展历程以及stm32的优势，听的与其说略懂一点，不如说完全不懂[捂脸]。应用场景非常广泛，我以前幻想的发明都可以通过stm32+丰富外设来完成。&lt;/p&gt;
-&lt;h2 id=&#34;p4&#34;&gt;P4&lt;/h2&gt;
-&lt;p&gt;stm32是ST公司基于ARM Cortex-M内核开发的微控制器&lt;/p&gt;
-&lt;h4 id=&#34;芯片有哪些资源&#34;&gt;芯片有哪些资源&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;可以查看芯片上印刷的型号，然后在“产品选型手册”搜索查找对应芯片的参数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;STM32 F 103 C 8 T 6&lt;/p&gt;
-&lt;p&gt;STM32：餐品系列，基于ARM核心的微控制器&lt;/p&gt;
-&lt;p&gt;F：通用类型&lt;/p&gt;
-&lt;p&gt;103：产品子系列（增强型）&lt;/p&gt;
-&lt;p&gt;C：引脚数目（48脚）&lt;/p&gt;
-&lt;p&gt;8：64K字节的闪存存储器&lt;/p&gt;
-&lt;p&gt;T：封装，根本不懂&lt;/p&gt;
-&lt;p&gt;6：工作温度范围&lt;/p&gt;
-&lt;h2 id=&#34;p5&#34;&gt;P5&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;MDK的安装：科学上网下载了MDK的最新安装包，版本号535，顺利安装成功，但没有激活（网上的keygen无法完成激活）&lt;/li&gt;
-&lt;li&gt;USB串口驱动安装：顺利完成。&lt;/li&gt;
-&lt;li&gt;拓展包：由于我没有开发板，所以没有安装拓展包。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;p6&#34;&gt;P6&lt;/h2&gt;
-&lt;p&gt;下载了ISP串口安装工具，跟着视频粗略的了解了一键下载的原理。&lt;/p&gt;
-&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
-&lt;p&gt;看了这个系列视频，有关P4 P5的讲解一点也不懂，一会去找一些其他课程加深理解。&lt;/p&gt;
-&lt;p&gt;建立工程文件夹，再建立USER文件夹，然后使用keil5新建工程，选择设备型号，&lt;/p&gt;
-&lt;p&gt;在工程文件夹下建立CORE文件夹、OBJ文件夹、LIB文件夹&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver  下的inc和src放到LIB文件夹下（存放ST官方提供的库函数源码）&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport 下的两个文件放入CORE文件夹(内核寄存器描述文件)&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_hd.s  复制到CORE文件夹 （stm32相关启动文件）&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x 下的三个文件放入USER文件夹&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Project\STM32F10x_StdPeriph_Template\ 下的4个文件 main.c 、stm32f10x_conf.h、stm32f10x_it.c、stm32f10x_it.h文件放入USER&lt;/p&gt;
-&lt;p&gt;keil5，Target1右键，选择Manager Project items，在groups依次建立USER,CORE和LIB。&lt;/p&gt;
-&lt;p&gt;在LIB中添加之前移入LIB/src的所有.c文件&lt;/p&gt;
-&lt;p&gt;在USER中添加USER中的所有.c文件&lt;/p&gt;
-&lt;p&gt;点击魔术棒，选择C/C++，设置include文件（USER,CORE,LIB/inc三个文件夹），在添加宏定STM32F10X_HD,USE_STDPERIPH_DRIVER&lt;/p&gt;
-&lt;p&gt;寄存器配置&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x 3个文件放到一个文件夹下&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_hd.s  复制到相同文件夹 （stm32相关启动文件）&lt;/p&gt;
-&lt;p&gt;STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport 下的两个文件放入相同文件夹下(内核寄存器描述文件)&lt;/p&gt;
-</content>
-            
-            
-            
-            
-            
-                
-                    
-                        
-                            
-                            
-                            
-                                <category scheme="https://2020snow.github.io/tags/learn/" term="learn" label="learn" />
-                            
-                        
-                            
-                            
-                            
-                                <category scheme="https://2020snow.github.io/tags/note/" term="note" label="note" />
-                            
-                        
-                            
-                            
-                            
-                                <category scheme="https://2020snow.github.io/tags/stm32/" term="stm32" label="stm32" />
-                            
-                        
                     
                 
             
