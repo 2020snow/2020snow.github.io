@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-11-28T15:40:32&#43;08:00</updated>
+    <updated>2021-11-28T15:42:47&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">计算机考试软件patched</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%80%83%E8%AF%95%E8%BD%AF%E4%BB%B6patched/" />
             <id>https://2020snow.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%80%83%E8%AF%95%E8%BD%AF%E4%BB%B6patched/</id>
-            <updated>2021-11-28T15:40:28&#43;08:00</updated>
+            <updated>2021-11-28T15:42:41&#43;08:00</updated>
             <published>2021-11-28T10:53:12&#43;08:00</published>
             <author>
                     <name>Snow</name>
