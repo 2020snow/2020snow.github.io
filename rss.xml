@@ -21,10 +21,71 @@
             <webMaster>hk_snow@yeah.net (Snow)</webMaster>
         
         
-        <lastBuildDate>Sun, 28 Nov 2021 15:42:47 &#43;0800</lastBuildDate>
+        <lastBuildDate>Tue, 07 Dec 2021 23:31:27 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://2020snow.github.io/rss.xml" />
         
+        
+            <item>
+                <title>计算机数据库渗透</title>
+                <link>https://2020snow.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B8%97%E9%80%8F/</link>
+                <guid isPermaLink="true">https://2020snow.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B8%97%E9%80%8F/</guid>
+                <pubDate>Tue, 07 Dec 2021 21:48:55 &#43;0800</pubDate>
+                
+                    <author>hk_snow@yeah.net (Snow)</author>
+                
+                
+                
+                    <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;听说计算机最新题库更新在了内网服务器，公网那个阿里云服务器不用了，跑去机房搞一下。&lt;/p&gt;
+&lt;p&gt;题库并不重要，重要的是玩！&lt;/p&gt;
+&lt;h1 id=&#34;查壳&#34;&gt;查壳&lt;/h1&gt;
+&lt;p&gt;无壳，软件采用vb语言编写，可以直接使用vb反编译软件查看汇编代码。&lt;/p&gt;
+&lt;h1 id=&#34;逆向过程&#34;&gt;逆向过程&lt;/h1&gt;
+&lt;p&gt;思路1：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;根据上一个破解的软件情况看，数据库连接信息可能写死在软件里，可以直接反编译查看数据库地址以及用户名密码。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;思路2：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;软件正常读取ini配置文件，并调用解密函数获得明文连接信息。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在反编译软件定位到M1，找到登陆部分&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/12/demo2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;由于这个反编译器付费才能使用反编译器功能（可能无法查看静态文本），所以只能先看反汇编代码.&lt;/p&gt;
+&lt;p&gt;看汇编代码不断构造var_，根据{sql server}可以看出var就是数据库的登陆信息，于是舍弃思路1，走思路2。为了动态查看var_内容，我决定用OD反编译动态调试，在堆栈窗口一定可以截取到数据库信息。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/12/3DD02E7576C779920439B18A329C2D74.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;根据VB反编译定位到解密的位置，地址为0043302D&lt;/p&gt;
+&lt;p&gt;然后动态调试，获得登陆信息（账号密码适当打码，估计10年不会改）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/12/B67633EFFE22C6132E5C8ADB38A87D09.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;无法登录&#34;&gt;无法登录&lt;/h1&gt;
+&lt;p&gt;看到sql我的脑子里只有mysql这一个数据库，于是我下载可视化管理软件navicat登陆，但是登陆时返回错误，错误信息大概是服务器开放，账号密码正确，但就是不能获取数据信息。&lt;strong&gt;我以为是软件可能欲使用该账号获取更多权限所以才无法登录，在机房电脑安装了python32位环境后，安装pymysql现场写了一个登陆程序&lt;/strong&gt;，依然无法登陆。&lt;/p&gt;
+&lt;p&gt;然后脑子里有一个想法，可能mysql数据库的端口不是默认端口（就像那台阿里云服务器一样），&lt;strong&gt;于是下载了端口扫描软件，扫描了目标主机所有开放端口&lt;/strong&gt;，开让1433，443，2563端口，备注信息1433和2563都是mysql服务器端口，挨个尝试后都连接失败。最后看到开放的443端口，差点安装msf直接获取主机操作权限，然后发现电脑是32位的不好安装软件，于是果断放弃。&lt;/p&gt;
+&lt;h1 id=&#34;细节决定成败&#34;&gt;细节决定成败&lt;/h1&gt;
+&lt;p&gt;快要放弃的时候，我看了下computer.ini软件的配置文件，发现有一个字段叫DBParm，里面的内容是CommitOnDisconnect=&#39;No&#39;,CursorLock=&#39;ReadOnly&#39;,DateTimeAllowed=&#39;Yes&#39;,host=&#39;appmain\mydomainc&#39;,AppName=&#39;computer&#39;
+Prompt=0，才发觉后台可能没有使用mysql数据库，而且登陆时必须带上这个验证信息才能正常登录。&lt;/p&gt;
+&lt;p&gt;百度字段DBparm，也没搞明白这是什么数据库（机房陆续上人了，不好再接着花费太多时间操作了），只知道这个数据库可以用一个叫“PowerBuilder”的软件建立连接，于是去盗版网站下载了该软件，跟着教程粗略的配置了连接，没想到直接连接成功。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/12/%E6%97%A0%E6%A0%87%E9%A2%98.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;可以看到tables已经有choice（选择题）的表了，进入后，执行select指令，获取了所有选择题。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2021/12/SUCCESS.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;导出成文本文件，获取了选择题题库，又接着获得了填空题题库。&lt;/p&gt;
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+&lt;p&gt;这次渗透大概花费了3h，整个操作过程有阻碍但都有思路去解决，以前的我会觉得没有加壳的软件没什么技术含量，但是当从测试环境拿到实战中才发现整个过程的坑很多，但是我可以有多个办法从容解决说明我的技术还是有所提升的。软件在涉及数据库连接时一定不要明文账号密码连接（虽然该软件没有明文但是不加壳动态调试和明文没什么区别），所以适当的对软件进行加壳、混淆防护还是很有必要的。&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://2020snow.github.io/tags/learnpatched/">learn，patched</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>计算机考试软件patched</title>
