@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2022-01-22T21:30:41&#43;08:00</updated>
+    <updated>2022-01-22T21:35:10&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -16,6 +16,267 @@
             </author>
     
     <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
+        <entry>
+            <title type="text">Stm32学习 第五章</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%94%E7%AB%A0/" />
+            <id>https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%94%E7%AB%A0/</id>
+            <updated>2022-01-22T21:35:01&#43;08:00</updated>
+            <published>2022-01-22T19:21:59&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html">[toc] 寄存器 什么是寄存器 寄存器是cpu内部用来存放数据的一些小型存储区域，用来暂时存放参……</summary>
+            
+                <content type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&#34;寄存器&#34;&gt;寄存器&lt;/h1&gt;
+&lt;h2 id=&#34;什么是寄存器&#34;&gt;什么是寄存器&lt;/h2&gt;
+&lt;p&gt;寄存器是cpu内部用来存放数据的一些小型存储区域，用来暂时存放参与运算的数据和运算结果。stm32中的寄存器可以理解为内存单元的别名。&lt;/p&gt;
+&lt;h2 id=&#34;一个stm32芯片&#34;&gt;一个stm32芯片&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122193419.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;观察stm32芯片架构简图，不难理解，与其将stm32芯片叫“芯片”，不如叫它“一个电脑”，因为它内部的M4内核就相当计算机的cpu，而且stm32有很多外设，犹如计算机的鼠标、键盘、硬盘等，而计算机操作这些外设也是通过诸如总线来实现，所以可以将stm32芯片理解为高度集成计算机。&lt;/p&gt;
+&lt;p&gt;stm32共有3种启动方式，从FLASH启动（通常）（包含系统存储器），从内部SRAM启动，从外部RAM启动。&lt;/p&gt;
+&lt;h2 id=&#34;存储器映射&#34;&gt;存储器映射&lt;/h2&gt;
+&lt;h3 id=&#34;存储器映射-1&#34;&gt;存储器映射&lt;/h3&gt;
+&lt;p&gt;给存储器分配地址的过程就成为存储器映射。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;存储器区域功能划分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122193928.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;其中 BLOCK0（被设计成内部flash）、 BLOCK1（内部ram）、 BLOCK2（片上外设）三个块很重要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Block0&lt;/p&gt;
+&lt;p&gt;在stm32f429中，该块有一个flash（2MB）存放我们写的程序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Block1&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122194233.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Block2&lt;/p&gt;
+&lt;p&gt;Block2被分成了APB和AHB两部分，APB又分为APB1和APB2，AHB分为AHB1和AHB2.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122194333.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;寄存器映射&#34;&gt;寄存器映射&lt;/h2&gt;
+&lt;h3 id=&#34;寄存器映射-1&#34;&gt;寄存器映射&lt;/h3&gt;
+&lt;p&gt;给已经分配好地址的有特有功能的内存单元取别名的过程就叫寄存器映射。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ODRx（x=0：15）对应该GPIO的16个外部IO，1高电平，0低电平&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;比如GPIOH的&lt;strong&gt;输出数据寄存器ODR&lt;/strong&gt;的地址是0x40021C14，让GPIOH的16个IO全部输出高电平。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;unsigned&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)(&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0x40021C14&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0xFFFF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;首先对地址强转成unsigned int类型，再用*对地址就行操作。&lt;/li&gt;
+&lt;li&gt;ODR寄存器是32位，低16位有效，0xFFFF转换成二进制正好是16个1，也就是将16位都设置成了1——高电平。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;正点原子sys.h对GPIO引脚的高低电平控制代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#define BITBAND(addr, bitnum) ((addr &amp;amp; 0xF0000000)+0x2000000+((addr &amp;amp;0xFFFFF)&amp;lt;&amp;lt;5)+(bitnum&amp;lt;&amp;lt;2)) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//IO口地址映射
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOA_ODR_Addr    (GPIOA_BASE+20) &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//0x40020014
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;cp&#34;&gt;#define PAout(n)   BIT_ADDR(GPIOA_ODR_Addr,n)  &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//输出 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define PAin(n)    BIT_ADDR(GPIOA_IDR_Addr,n)  &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//输入 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;stm32的外设地址映射&#34;&gt;stm32的外设地址映射&lt;/h2&gt;
+&lt;p&gt;片上外设区分为四条总线，APB挂载低速外设，AHB挂在高速外设。总线的最低地址成为&lt;strong&gt;基地址&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;总线基地址&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122195851.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;外设基地址&lt;/p&gt;
+&lt;p&gt;以GPIO为例&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122200208.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;外设寄存器&lt;/p&gt;
+&lt;p&gt;以GPIO为例&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122200315.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;每个寄存器位32位，占四个字节。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以“GPIO端口置位/复位寄存器”为例&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/QQ%E6%88%AA%E5%9B%BE20220122200502.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;名称 （x=A...I）表示GPIOA到GPIOI都有这样一个寄存器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;位功能说明&lt;/p&gt;
+&lt;p&gt;可以看到BRy和BSy是通过改变寄存器ODR（上文提到过）来控制指定IO口的高低电平，**置位BRy时，那么GPIOx的yPin为低电平，而复位BRy时，不会对GPIOx的yPin有影响；同理，置为BSy时，GPIOxx的yPin为高电平，而复位BSy时，不会对GPIOx的yPin有影响。**可以得到，想要输出高电平，只能对BSy操作；想要输出低电平，只能对BRy操作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;库函数对寄存器的封装&#34;&gt;库函数对寄存器的封装&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#define PERIPH_BASE           ((uint32_t)0x40000000) &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//!&amp;lt; Peripheral base address in the alias region APB1总线基地址
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define AHB1PERIPH_BASE       (PERIPH_BASE + 0x00020000) &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//AHB1基地址
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOA_BASE            (AHB1PERIPH_BASE + 0x0000) &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//GPIOA基地址
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//可以理解为将GPIOA的基地址映射到GPIO的一个结构体上，这个写法非常巧妙，后面解析
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MODER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port mode register,               Address offset: 0x00      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OTYPER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port output type register,        Address offset: 0x04      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OSPEEDR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port output speed register,       Address offset: 0x08      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PUPDR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port pull-up/pull-down register,  Address offset: 0x0C      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IDR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;      &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port input data register,         Address offset: 0x10      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ODR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;      &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port output data register,        Address offset: 0x14      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BSRRL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port bit set/reset low register,  Address offset: 0x18      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BSRRH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port bit set/reset high register, Address offset: 0x1A      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LCKR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;     &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO port configuration lock register, Address offset: 0x1C      */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;__IO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AFR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;   &lt;span class=&#34;cm&#34;&gt;/*!&amp;lt; GPIO alternate function registers,     Address offset: 0x20-0x24 */&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIO_TypeDef&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;封装好总线和外设基地址后，库内又定义了一个寄存器结构体，巧妙绝非巧合的地方在于*&lt;em&gt;一个寄存器是32位，4字节，而结构体中一个寄存器用的是unsigned int（4字节）定义，也就是说((GPIO_TypeDef &lt;em&gt;) GPIOA_BASE)会自动将GPIOA_BASE+偏移自动映射到每一个结构体成员中，此后，可以直接结构体中的成员来控制该寄存器。&lt;/em&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIO_Pin_9                 ((uint16_t)0x0200)  &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* Pin 9 selected */&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIO_Pin_10                ((uint16_t)0x0400)  &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* Pin 10 selected */&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;//库函数中对GPIO的指定引脚设置高电平
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;GPIO_SetBits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIO_TypeDef&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIOx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIO_Pin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;cm&#34;&gt;/* Check the parameters */&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;assert_param&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IS_GPIO_ALL_PERIPH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIOx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;assert_param&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IS_GPIO_PIN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIO_Pin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+
+  &lt;span class=&#34;n&#34;&gt;GPIOx&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BSRRL&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIO_Pin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;GPIO_SetBits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIOA&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIO_Pin_10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//设置GPIOF Pin10高电平
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIO_SetBits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIOA&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIO_Pin_9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//设置GPIOF Pin9为高电平，且Pin10恢复低电平
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIO_SetBits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GPIOA&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIO_Pin_9&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GPIO_Pin_10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//设置GPIOF Pin9和10高电平
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Pin_9的宏定义0x0200化为二进制为1000000000，第九位为1。让BSRRL寄存器等于1000000000就是第九位为1，达到Pin_9高电平的目的。&lt;strong&gt;就此看来，我先设置10高电平，又设置了9为高电平，但这时10又会恢复低电平&lt;/strong&gt;。C语言的位操作就是用来解决这个问题。&lt;/p&gt;
+&lt;h3 id=&#34;位操作简述&#34;&gt;位操作（简述）&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;位与：&amp;amp;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作：1 &amp;amp; 1 = 1；　　1 &amp;amp; 0 = 0；　　0 &amp;amp; 0 = 0；&lt;/p&gt;
+&lt;p&gt;特点：只有全是1的时候才是1，其他情况都是0.&lt;/p&gt;
+&lt;p&gt;总结：任何数和0位与就是0，和1位与没有变化，所以位与常用在清零上（清零用位与）。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;位或：|&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作：1 | 1 = 1；　　1 | 0 = 1；　　0 | 0 = 0；&lt;/p&gt;
+&lt;p&gt;特点：只有全0的时候才是0，其他情况都是1.&lt;/p&gt;
+&lt;p&gt;总结：任何数和1位或就是1，和0位或没有变化，所以位或常用在置1上（置1用位或）。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;位取反：~&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作：~1 = 0；　　~0 = 1；&lt;/p&gt;
+&lt;p&gt;特点：1取反为0，0取反为1.&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;位异或：^&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作：1 ^ 1 = 0；　　1 ^ 0 = 1； 0 ^ 1 = 1；　0 ^ 0 = 0；&lt;/p&gt;
+&lt;p&gt;特点：相同为0，不同为1.&lt;/p&gt;
+&lt;p&gt;总结：任何数和1位异或会取反，和0异或没有变化（特定位要取反就用位异或）。&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;左移（&amp;lt;&amp;lt;）和右移（&amp;gt;&amp;gt;）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作的时候要考虑有符号数（signed number）和无符号数（unsigned number）。&lt;/p&gt;
+&lt;p&gt;对于有符号数：左移的时候右侧补0；右移的时候左侧补符号位（正数符号位为0，则补0；负数符号位为1，则补1）.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对于无符号数：左移的时候右侧补0；右移的时候左侧也是补0.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;根据C语言位操作，GPIO_Pin_9 | GPIO_Pin_10就会得到第9和10位都为1，低位为0的二进制。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/%E6%97%A0%E6%A0%87%E9%A2%98.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;[&lt;a href=&#34;http://www.manongjc.com/detail/24-vlfwefjotvejnqd.html&#34;&gt;C语言-常用寄存器位操作总结 - 码农教程 (manongjc.com)&lt;/a&gt;](&lt;a href=&#34;http://www.manongjc.com/detail/24-vlfwefjotvejnqd.html&#34;&gt;C语言-常用寄存器位操作总结 - 码农教程 (manongjc.com)&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;[c语言的位操作 - __jetson - 博客园 (cnblogs.com)](&lt;a href=&#34;https://www.cnblogs.com/nibuyaoni/p/5547795.html#:~:text=c&#34;&gt;https://www.cnblogs.com/nibuyaoni/p/5547795.html#:~:text=c&lt;/a&gt;语言的位操作 c语言的位操作最常用的地方就是用在对寄存器的写值上。 一.基本的一些概念 1.位与：%26 操作：1 %26 1 %3D,0； 0 %26 0 %3D 0； 特点：只有全是1的时候才是1，其他情况都是0. 总结：任何数和0位与就是0，和1位与没有变化，所以位与常用在清零上（清零用位与）。)&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;现在普遍使用库函数和CubeMX生成工程（也属于库函数）的方式去开发，不懂寄存器也可以开发。但懂得其中的原理也很重要，并不局限于书中说的“只知其所以然”&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/learn/" term="learn" label="learn" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/stm32/" term="stm32" label="stm32" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Robomaster板C遥控器接收</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/robomaster%E6%9D%BFc%E9%81%A5%E6%8E%A7%E5%99%A8%E6%8E%A5%E6%94%B6/" />
