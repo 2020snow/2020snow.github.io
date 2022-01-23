@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2022-01-22T21:57:56&#43;08:00</updated>
+    <updated>2022-01-23T23:31:58&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -16,6 +16,297 @@
             </author>
     
     <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
+        <entry>
+            <title type="text">Stm32学习 第七章</title>
+            <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/" />
+            <id>https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/</id>
+            <updated>2022-01-23T23:26:43&#43;08:00</updated>
+            <published>2022-01-23T22:44:07&#43;08:00</published>
+            <author>
+                    <name>Snow</name>
+                    <uri>https://2020snow.github.io/</uri>
+                    <email>hk_snow@yeah.net</email>
+                    </author>
+            <summary type="html">使用寄存器点亮LED 启动文件 stm32f4xx.h main.c 代码解析 每课一问 使用寄存器点亮LED 启动文件 初始化堆……</summary>
+            
+                <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/#%E4%BD%BF%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%82%B9%E4%BA%AEled&#34;&gt;使用寄存器点亮LED&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/#%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6&#34;&gt;启动文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/#stm32f4xxh&#34;&gt;stm32f4xx.h&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/#mainc&#34;&gt;main.c&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90&#34;&gt;代码解析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%83%E7%AB%A0/#%E6%AF%8F%E8%AF%BE%E4%B8%80%E9%97%AE&#34;&gt;每课一问&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;使用寄存器点亮led&#34;&gt;使用寄存器点亮LED&lt;/h1&gt;
+&lt;h2 id=&#34;启动文件&#34;&gt;启动文件&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化堆栈指针、设置堆栈大小&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;n&#34;&gt;Stack_Size&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;EQU&lt;/span&gt;     &lt;span class=&#34;mh&#34;&gt;0x00001000&lt;/span&gt;
+
+                &lt;span class=&#34;n&#34;&gt;AREA&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;STACK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NOINIT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;READWRITE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ALIGN&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Stack_Mem&lt;/span&gt;       &lt;span class=&#34;n&#34;&gt;SPACE&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;Stack_Size&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;__initial_sp&lt;/span&gt;
+
+
+&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Heap&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Configuration&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;Heap&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Size&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Bytes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0x0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0xFFFFFFFF&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;Heap_Size&lt;/span&gt;       &lt;span class=&#34;n&#34;&gt;EQU&lt;/span&gt;     &lt;span class=&#34;mh&#34;&gt;0x00001000&lt;/span&gt;
+
+                &lt;span class=&#34;n&#34;&gt;AREA&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;HEAP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NOINIT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;READWRITE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ALIGN&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;__heap_base&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Heap_Mem&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;SPACE&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;Heap_Size&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;__heap_limit&lt;/span&gt;
+
+                &lt;span class=&#34;n&#34;&gt;PRESERVE8&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;THUMB&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;设置中断向量表的入口地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;RCC_IRQHandler&lt;/span&gt;                    &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RCC&lt;/span&gt;                                           
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;EXTI0_IRQHandler&lt;/span&gt;                  &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EXTI&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line0&lt;/span&gt;                                  
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;EXTI1_IRQHandler&lt;/span&gt;                  &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EXTI&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line1&lt;/span&gt;                                   
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;EXTI2_IRQHandler&lt;/span&gt;                  &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EXTI&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line2&lt;/span&gt;                                   
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;EXTI3_IRQHandler&lt;/span&gt;                  &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EXTI&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line3&lt;/span&gt;                                   
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;EXTI4_IRQHandler&lt;/span&gt;                  &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EXTI&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line4&lt;/span&gt;                                   
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;DMA1_Stream0_IRQHandler&lt;/span&gt;           &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DMA1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;                                 
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;DMA1_Stream1_IRQHandler&lt;/span&gt;           &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DMA1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;                                 
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;DMA1_Stream2_IRQHandler&lt;/span&gt;           &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DMA1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;                                 
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;DMA1_Stream3_IRQHandler&lt;/span&gt;           &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DMA1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;                                 
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;DMA1_Stream4_IRQHandler&lt;/span&gt;           &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DMA1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;                                 
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;DMA1_Stream5_IRQHandler&lt;/span&gt;           &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DMA1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;                                 
+                &lt;span class=&#34;n&#34;&gt;DCD&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;DMA1_Stream6_IRQHandler&lt;/span&gt;           &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DMA1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;   
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;调用SystemIni()配置stm32系统时钟,设置C库的分支入口“__main”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;n&#34;&gt;Reset_Handler&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;PROC&lt;/span&gt;
+                 &lt;span class=&#34;n&#34;&gt;EXPORT&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;Reset_Handler&lt;/span&gt;             &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WEAK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;IMPORT&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;SystemInit&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;IMPORT&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;__main&lt;/span&gt;
+
+                 &lt;span class=&#34;n&#34;&gt;LDR&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;R0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SystemInit&lt;/span&gt;
+                 &lt;span class=&#34;n&#34;&gt;BLX&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;R0&lt;/span&gt;
+                 &lt;span class=&#34;n&#34;&gt;LDR&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;R0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__main&lt;/span&gt;
+                 &lt;span class=&#34;n&#34;&gt;BX&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;R0&lt;/span&gt;
+                 &lt;span class=&#34;n&#34;&gt;ENDP&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;EXPORT  Reset_Handler             [WEAK]弱定义，可在别处重写。&lt;/p&gt;
+&lt;p&gt;__main并不是C语言中的main函数，C语言用户自定义的main是其中一部分（最后执行）&lt;/p&gt;
+&lt;h2 id=&#34;stm32f4xxh&#34;&gt;stm32f4xx.h&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#define PERIPH_BASE           ((uint32_t)0x40000000)
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define AHB1PERIPH_BASE       (PERIPH_BASE + 0x00020000)
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH_BASE			 (AHB1PERIPH_BASE + 0x1C00)
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH MODER           *(unsigned int*)(GPIOH BASE+0x00) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH OTYPER          *(unsigned int*) (GPIOH BASE+0x04)
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH OSPEEDR         *(unsigned int*)(GPIOH BASE+0x08)
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH PUPDR           *(unsigned int*) (GPIOH_BASE+0x0C) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH IDR             *(unsigned int*) (GPIOH BASE+0x10) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH ODR             *(unsigned int*)(GPIOH BASE+0x14) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH BSRR            *(unsigned int*)(GPIOH BASE+0x18) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH LCKR            *(unsigned int*) (GPIOH_BASE+0x1C) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH AFRL            *(unsigned int*)(GPIOH BASE+0x20) 
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define GPIOH AFRH            *(unsigned int*)(GPIOH BASE+0x24)
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;cp&#34;&gt;#define RCC_BASE              (AHB1PERIPH_BASE + 0X3800)
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#DEFINE RCC_AHB1ENR           *(unsigned int*)(RCC_BASE + 0X30)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;mainc&#34;&gt;main.c&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;#34;stm32f4xx.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	
+	&lt;span class=&#34;n&#34;&gt;RCC_AHB1ENR&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//开启GPIOH的时钟
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;GPIOH_MODER&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x03&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//清空欲修改的位
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;GPIOH_MODER&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//设置输出模式 推挽0b
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;GPIOH_OSPEEDR&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0x03&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//清空欲修改的位
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;GPIOH_OSPEEDR&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//设置输出速率
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;GPIOH_PUPDR&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0x03&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//清空与修改的位
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;GPIOH_PUPDR&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//下拉模式 01b
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;GPIOH_BSRR&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//BR10置1，输出低电平，LED点亮。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+		
+	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SystemInit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//仅定义该函数，但使用系统默认配置系统时钟
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;代码解析&#34;&gt;代码解析&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;n&#34;&gt;GPIOH_MODER&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x03&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//清空欲修改的位
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这句代码作用是将位19、20置0，字面上理解应该是写入内存，但实际上这句话包含了&lt;strong&gt;读和写&lt;/strong&gt;。&lt;strong&gt;欲只影响位19、20，而其他位不受影响，利用C语言的位操作可以轻松实现。首先构造一个1100000000000000000000，然后利用取反~变成0011111111111111111111，&amp;amp;=就是GPIOH_MODER= GPIOH_MODER &amp;amp;(0011111111111111111111)，“与”&amp;amp;是全是1才是1，有0则为0，这样一来，只有19、20位变成了0，而其他位若原来就是0，则一直是0；若原来是1，则写为1&lt;/strong&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;n&#34;&gt;GPIOH_MODER&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//设置输出模式 推挽0b
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;写入时位操作常用“或”|，目的也是不影响欲写入位的前面的位的数据。详情参考第四章笔记，不再赘述。&lt;/p&gt;
+&lt;h2 id=&#34;每课一问&#34;&gt;每课一问&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;通过控制ODR寄存器点亮实验板上的灯&lt;/p&gt;
+&lt;p&gt;首先查找数据手册&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/01/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-01-23%20232015.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;将指定的ODR10置0即可输出低电平，点亮LED&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;n&#34;&gt;GPIOH_ODR&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0x01&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/learn/" term="learn" label="learn" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://2020snow.github.io/tags/stm32/" term="stm32" label="stm32" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Stm32学习 第五章</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/stm32%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%94%E7%AB%A0/" />
