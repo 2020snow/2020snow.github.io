@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Snow</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2022-03-04T21:18:30&#43;08:00</updated>
+    <updated>2022-03-04T21:20:41&#43;08:00</updated>
     <id>https://2020snow.github.io/</id>
     <link rel="alternate" type="text/html" href="https://2020snow.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://2020snow.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">Babyrop2</title>
             <link rel="alternate" type="text/html" href="https://2020snow.github.io/posts/babyrop2/" />
             <id>https://2020snow.github.io/posts/babyrop2/</id>
-            <updated>2022-03-04T21:18:26&#43;08:00</updated>
+            <updated>2022-03-04T21:20:10&#43;08:00</updated>
             <published>2022-03-04T20:56:43&#43;08:00</published>
             <author>
                     <name>Snow</name>
@@ -91,7 +91,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;刚开始我以为向printf传一个got地址参数就能打印出来呢，原来需要传入格式化字符、欲打印数据&lt;strong&gt;两个参数&lt;/strong&gt;，就需要pop rdi、rsi的地址、还有%s的地址。&lt;/p&gt;
 &lt;p&gt;搜索一下&lt;/p&gt;
-&lt;p&gt;img&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/hkslover/blog_img/raw/master/2022/03/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-03-04%20211247.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;但是并没有独立的pop rsi，而是pop rsi ; pop r15 ; ret，在构造payload时别忘了给r15一个参数就好了&lt;/strong&gt;。&lt;/p&gt;
 &lt;h1 id=&#34;exploit&#34;&gt;exploit&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
